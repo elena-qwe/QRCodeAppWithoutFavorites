@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav_for_home"
+    app:startDestination="@id/scanFragment">
+
+    <fragment
+        android:id="@+id/scanFragment"
+        android:name="com.example.qrcodeapp.fragments.scan.ScanFragment"
+        android:label="Сканирование штрихкода"
+        tools:layout="@layout/fragment_scan" >
+        <action
+            android:id="@+id/action_scanFragment_to_scanHistoryFragment"
+            app:destination="@id/scanHistoryFragment" />
+        <action
+            android:id="@+id/action_scanFragment_to_markFragment"
+            app:destination="@id/markFragment" />
+        <action
+            android:id="@+id/action_scanFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scanHistoryFragment"
+        android:name="com.example.qrcodeapp.fragments.history.HistoryFragment"
+        android:label="История штрихкодов"
+        tools:layout="@layout/fragment_history" >
+        <action
+            android:id="@+id/action_scanHistoryFragment_to_updateScanFragment"
+            app:destination="@id/updateScanFragment" />
+        <action
+            android:id="@+id/action_scanHistoryFragment_to_scanFragment"
+            app:destination="@id/scanFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/markFragment"
+        android:name="com.example.qrcodeapp.fragments.mark.MarkFragment"
+        android:label="Избранные штрихкоды"
+        tools:layout="@layout/fragment_mark" >
+        <action
+            android:id="@+id/action_markFragment_to_scanFragment"
+            app:destination="@id/scanFragment" />
+        <action
+            android:id="@+id/action_markFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_markFragment_to_scanHistoryFragment"
+            app:destination="@id/scanHistoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.qrcodeapp.fragments.settings.SettingsFragment"
+        android:label="Настройки приложения"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_markFragment"
+            app:destination="@id/markFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_connectFragment"
+            app:destination="@id/connectFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_scanHistoryFragment"
+            app:destination="@id/scanHistoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateScanFragment"
+        android:name="com.example.qrcodeapp.fragments.updateScan.UpdateScanFragment"
+        android:label="Редактирование штрихкода"
+        tools:layout="@layout/fragment_update_scan" >
+        <action
+            android:id="@+id/action_updateScanFragment_to_scanHistoryFragment"
+            app:destination="@id/scanHistoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/connectFragment"
+        android:name="com.example.qrcodeapp.fragments.connect.ConnectFragment"
+        android:label="fragment_connect"
+        tools:layout="@layout/fragment_connect" >
+        <action
+            android:id="@+id/action_connectFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+</navigation>
