@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.ListFragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.qrcodeapp.R
@@ -32,27 +34,24 @@ class AddFragment : Fragment() {
 
         binding.addBtn.setOnClickListener {
             insertDataToDatabase()
+
         }
 
         return binding.root
     }
 
     private fun insertDataToDatabase() {
-        /*val firstname = firstname_et.editText?.text.toString()
+        val firstname = firstname_et.editText?.text.toString()
         val lastname = lastname_et.editText?.text.toString()
-        val department = department_et.editText?.text.toString()*/
+        val department = department_et.editText?.text.toString()
         val email = login_et.editText?.text.toString()
         val password = password_et.editText?.text.toString()
-        val role = when (roleRadioGroup.checkedRadioButtonId) {
-            R.id.adminRadioButton -> "admin"
-            R.id.employeeRadioButton -> "user"
-            else -> 0
-        }
 
 
-        if (inputCheck(/*firstname, lastname, department,*/ email, password, role.toString())) {
+
+        if (inputCheck(firstname, lastname, department, email, password)) {
                 //create user object
-                val user = User(0, /*firstname, lastname, department,*/ email, password, role.toString())
+                val user = User(0, firstname, lastname, department, email, password)
                 //add data to database
                 mUserViewModel.addUser(user)
                 Toast.makeText(
@@ -61,7 +60,12 @@ class AddFragment : Fragment() {
                     Toast.LENGTH_LONG
                 ).show()
                 //navigate back
-                findNavController().navigate(R.id.action_addFragment_to_listFragment)
+            val newFragment: Fragment = ListFragment()
+            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+
+            transaction.replace(com.example.qrcodeapp.R.id.frame_layout, newFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
             } else {
                 Toast.makeText(
                     requireContext(), "Пожалуйста заполните все поля", Toast.LENGTH_LONG
@@ -70,16 +74,15 @@ class AddFragment : Fragment() {
     }
 
     private fun inputCheck(
-        /*firstname: String,
+        firstname: String,
         lastname: String,
-        department: String,*/
+        department: String,
         email: String,
-        password: String,
-        role: String
+        password: String
     ): Boolean {
-        return !(/*TextUtils.isEmpty(firstname) || TextUtils.isEmpty(lastname) || TextUtils.isEmpty(
+        return !(TextUtils.isEmpty(firstname) || TextUtils.isEmpty(lastname) || TextUtils.isEmpty(
             department
-        ) ||*/ TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(role))
+        ) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password))
     }
 
 

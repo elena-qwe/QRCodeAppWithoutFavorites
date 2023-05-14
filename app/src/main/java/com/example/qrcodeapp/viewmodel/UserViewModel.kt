@@ -46,21 +46,21 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
-    fun getUser(email: String, password: String, role: String) {
+   /* fun getUser(email: String, password: String, role: String) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.getUser(email, password, role)
         }
-    }
+    }*/
 
     fun insertUser(user: User) = viewModelScope.launch {
         repository.insertUser(user)
     }
 
-    fun findByEmailAndPasswordAndRole(email: String, password: String, role: String) {
+    /*fun findByEmailAndPasswordAndRole(email: String, password: String, role: String) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.findByEmailAndPasswordAndRole(email, password, role)
         }
-    }
+    }*/
 
 
 

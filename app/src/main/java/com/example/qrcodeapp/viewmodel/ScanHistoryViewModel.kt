@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.qrcodeapp.model.Scan
 import com.example.qrcodeapp.model.User
 import com.example.qrcodeapp.repository.ScanHistoryRepository
+import com.example.qrcodeapp.repository.data.scan.ScanDao
 import com.example.qrcodeapp.repository.data.scan.ScanDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -46,4 +47,5 @@ class ScanHistoryViewModel(application: Application) : AndroidViewModel(applicat
             repository.deleteAllScans()
         }
     }
+
 }

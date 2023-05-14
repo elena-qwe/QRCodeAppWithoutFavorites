@@ -25,9 +25,9 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertUser(user: User)
 
-    @Query("SELECT * FROM users WHERE email = :email AND password = :password AND role = :role")
+   /* @Query("SELECT * FROM users WHERE email = :email AND password = :password AND role = :role")
     suspend fun getUser(email: String, password: String, role: String): User?
 
     @Query("SELECT * FROM users WHERE email = :email AND password = :password AND role = :role")
-    fun findByEmailAndPasswordAndRole(email: String, password: String, role: String): User?
+    fun findByEmailAndPasswordAndRole(email: String, password: String, role: String): User?*/
 }

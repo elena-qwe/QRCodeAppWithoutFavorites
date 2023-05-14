@@ -5,12 +5,15 @@ import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.ListFragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.qrcodeapp.R
 import com.example.qrcodeapp.databinding.FragmentListBinding
+import com.example.qrcodeapp.fragments.add.AddFragment
 import com.example.qrcodeapp.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
@@ -38,7 +41,12 @@ class ListFragment : Fragment() {
         })
 
         binding.floatingActionButton.setOnClickListener {
-            findNavController().navigate(R.id.action_listFragment_to_addFragment)
+            val newFragment: Fragment = AddFragment()
+            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+
+            transaction.replace(com.example.qrcodeapp.R.id.frame_layout, newFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
         }
 
         //add menu

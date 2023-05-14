@@ -21,6 +21,7 @@ class ScanAdapter : RecyclerView.Adapter<ScanAdapter.MyViewHolder>() {
 
     }
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
        return MyViewHolder(
            LayoutInflater.from(parent.context).inflate(R.layout.item_scan, parent, false)
@@ -34,7 +35,7 @@ class ScanAdapter : RecyclerView.Adapter<ScanAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val curItem = scanList[position]
-        holder.itemView.id_txt.text = curItem.id.toString()
+        //holder.itemView.id_txt.text = curItem.id.toString()
         holder.itemView.name_txt.text = curItem.name
         holder.itemView.content_txt.text = curItem.content
 

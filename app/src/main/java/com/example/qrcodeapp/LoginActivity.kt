@@ -29,7 +29,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }*/
 
-        binding.loginButton.setOnClickListener {
+        /*binding.loginButton.setOnClickListener {
 
             val email = binding.emailEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
@@ -54,7 +54,7 @@ class LoginActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Выберите пожалуйста роль", Toast.LENGTH_SHORT).show()
             }
-        }
+        }*/
     }
 }
 

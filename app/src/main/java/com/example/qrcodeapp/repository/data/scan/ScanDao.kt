@@ -24,4 +24,6 @@ interface ScanDao {
 
     @Query("DELETE FROM scans")
     suspend fun deleteAllScans()
+
+
 }

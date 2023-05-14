@@ -7,7 +7,7 @@
     tools:context=".fragments.updateScan.UpdateScanFragment">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/titleUpdateScan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
@@ -22,64 +22,51 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/update_firstname_et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="35dp"
+    <EditText
+        android:id="@+id/inputNameEditText"
+        android:layout_width="340dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="45dp"
+        android:background="@drawable/edit_text_style"
+        android:ellipsize="start"
+        android:gravity="center"
         android:hint="Название штрихкода"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.199">
+        app:layout_constraintTop_toBottomOf="@+id/titleUpdateScan" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"/>
-    </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/update_lastname_et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="35dp"
-        android:hint="Дата сканирования"
+    <EditText
+        android:id="@+id/inputDateEditText"
+        android:layout_width="340dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="45dp"
+        android:background="@drawable/edit_text_style"
+        android:ellipsize="start"
+        android:gravity="center"
+        android:hint="Дата создания"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/update_firstname_et">
+        app:layout_constraintTop_toBottomOf="@+id/inputNameEditText" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="datetime"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/update_department_et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="35dp"
+    <EditText
+        android:id="@+id/inputInfoEditText"
+        android:layout_width="340dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="45dp"
+        android:background="@drawable/edit_text_style"
+        android:ellipsize="start"
+        android:gravity="center"
         android:hint="Дополнительная информация"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/update_lastname_et">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/inputDateEditText" />
 
     <Button
         android:id="@+id/update_add_btn"
@@ -101,7 +88,7 @@
         app:layout_constraintBottom_toTopOf="@+id/update_add_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/update_department_et" />
+        app:layout_constraintTop_toBottomOf="@+id/inputInfoEditText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

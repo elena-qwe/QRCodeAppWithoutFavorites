@@ -8,34 +8,32 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.room.Room
 import com.example.qrcodeapp.R
-import com.example.qrcodeapp.databinding.FragmentHistoryBinding
-import com.example.qrcodeapp.fragments.mark.FavoritesAdapter
-import com.example.qrcodeapp.model.Favorite
-import com.example.qrcodeapp.model.Scan
-import com.example.qrcodeapp.viewmodel.FavoritesViewModel
+import com.example.qrcodeapp.model.AppDatabase
+import com.example.qrcodeapp.model.FavoriteItem
 import com.example.qrcodeapp.viewmodel.ScanHistoryViewModel
-import kotlinx.android.synthetic.main.fragment_list.view.*
-import kotlinx.android.synthetic.main.item_scan.*
+import kotlinx.android.synthetic.main.fragment_history.view.*
 import kotlinx.android.synthetic.main.item_scan.view.*
 
 
 class HistoryFragment : Fragment() {
 
-    /*private lateinit var viewModelFav: FavoritesViewModel
-    private lateinit var adapterFav: FavoritesAdapter*/
+   
+
     private lateinit var mScanHistoryViewModel: ScanHistoryViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentHistoryBinding.inflate(layoutInflater, container, false)
+
+
+        val view = inflater.inflate(R.layout.fragment_history, container, false)
 
         //recyclerview
         val adapter = ScanAdapter()
-        val recyclerView = binding.recyclerview
+        val recyclerView = view.recyclerview
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
@@ -45,12 +43,19 @@ class HistoryFragment : Fragment() {
             adapter.setData(scan)
         })
 
+        //добавление в список избранного//
+        /*view.button_to_mark.setOnClickListener {
+
+
+        }*/
 
         //add menu
         setHasOptionsMenu(true)
 
-        return binding.root
+        return view
     }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.delete_menu, menu)

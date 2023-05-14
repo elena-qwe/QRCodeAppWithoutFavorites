@@ -3,22 +3,22 @@ package com.example.qrcodeapp.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.qrcodeapp.model.Favorite
+import com.example.qrcodeapp.model.FavoriteItem
 import com.example.qrcodeapp.model.Scan
 
 class FavoritesViewModel: ViewModel() {
 
-    private val favoriteCodes = mutableListOf<Favorite>()
+    private val favoriteCodes = mutableListOf<FavoriteItem>()
 
-    fun addFavorites(favorite: Favorite) {
-        favoriteCodes.add(favorite)
+    fun addFavorites(favoriteItem: FavoriteItem) {
+        favoriteCodes.add(favoriteItem)
     }
 
-    fun removeFavorites(favorite: Favorite) {
-        favoriteCodes.remove(favorite)
+    fun removeFavorites(favoriteItem: FavoriteItem) {
+        favoriteCodes.remove(favoriteItem)
     }
 
-    fun getFavoriteCodes(): List<Favorite> {
+    fun getFavoriteCodes(): List<FavoriteItem> {
         return favoriteCodes
     }
 

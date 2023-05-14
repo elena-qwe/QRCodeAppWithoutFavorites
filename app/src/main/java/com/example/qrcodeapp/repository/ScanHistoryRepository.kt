@@ -26,4 +26,6 @@ class ScanHistoryRepository(private val scanDao: ScanDao) {
     }
 
 
+
+
 }

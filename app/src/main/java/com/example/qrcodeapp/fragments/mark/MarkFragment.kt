@@ -6,17 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.qrcodeapp.R
 import com.example.qrcodeapp.databinding.FragmentMarkBinding
-import com.example.qrcodeapp.model.Favorite
+import com.example.qrcodeapp.model.Scan
 import com.example.qrcodeapp.viewmodel.FavoritesViewModel
-import kotlinx.android.synthetic.main.fragment_mark.view.*
 
 
 class MarkFragment : Fragment() {
 
-    private lateinit var viewModel: FavoritesViewModel
-    private lateinit var adapter: FavoritesAdapter
+    private lateinit var favoriteItemsRecyclerView: RecyclerView
+    private lateinit var favoriteItemsAdapter: FavoriteItemsAdapter
+    private val favoriteItems = mutableListOf<Scan>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,16 +27,18 @@ class MarkFragment : Fragment() {
 
         val binding = FragmentMarkBinding.inflate(inflater, container, false)
 
-        viewModel = ViewModelProvider(this).get(FavoritesViewModel::class.java)
+        favoriteItemsRecyclerView = binding.favoriteItemsRecyclerView
+        favoriteItemsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        favoriteItemsAdapter = FavoriteItemsAdapter(favoriteItems)
+        favoriteItemsRecyclerView.adapter = favoriteItemsAdapter
 
-        val adapter = FavoritesAdapter()
-        binding.recyclerviewMark.adapter = adapter
-
-        binding.floatingActionButton.setOnClickListener {
-           //добавить в избранное (?)
-        }
 
         return binding.root
+    }
+
+    fun addToFavorites(item: Scan) {
+        favoriteItems.add(item)
+        favoriteItemsAdapter.notifyDataSetChanged()
     }
 
 
