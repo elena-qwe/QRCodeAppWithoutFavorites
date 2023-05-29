@@ -44,25 +44,7 @@
             android:inputType="textPassword"
             android:minHeight="48dp" />
 
-        <RadioGroup
-            android:id="@+id/roleRadioGroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/adminRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Администратор" />
-
-            <RadioButton
-                android:id="@+id/employeeRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Сотрудник" />
-
-        </RadioGroup>
 
         <Button
             android:id="@+id/loginButton"
@@ -70,11 +52,11 @@
             android:layout_height="wrap_content"
             android:text="Войти в приложение" />
 
-        <Button
+        <!--<Button
             android:id="@+id/registerButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Зарегистрироваться" />
+            android:text="Зарегистрироваться" />-->
 
 
     </LinearLayout>

@@ -12,6 +12,7 @@ import androidx.fragment.app.ListFragment
 import com.example.qrcodeapp.databinding.FragmentSettingsBinding
 import com.example.qrcodeapp.fragments.ChangeThemeFragment
 import com.example.qrcodeapp.fragments.add.AddFragment
+import com.example.qrcodeapp.fragments.add.CreateCodeFragment
 import com.example.qrcodeapp.fragments.connect.ConnectFragment
 import kotlinx.android.synthetic.main.fragment_settings.view.*
 
@@ -48,6 +49,15 @@ class SettingsFragment : Fragment() {
 
         binding.listUserButton.setOnClickListener {
             val newFragment: Fragment = ListFragment()
+            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+
+            transaction.replace(com.example.qrcodeapp.R.id.frame_layout, newFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+        binding.createQRCodeButton.setOnClickListener {
+            val newFragment: Fragment = CreateCodeFragment()
             val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
 
             transaction.replace(com.example.qrcodeapp.R.id.frame_layout, newFragment)
